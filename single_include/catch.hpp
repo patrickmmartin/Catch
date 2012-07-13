@@ -318,7 +318,7 @@ namespace Catch
         std::string::size_type start = str.find_first_not_of( "\n\r\t " );
         std::string::size_type end = str.find_last_not_of( "\n\r\t " );
 
-        return start != std::string::npos ? str.substr( start, 1+end-start ) : "";
+        return start != std::string::npos ? str.substr( start, 1+end-start ) : std::string("");
     }
 }
 
@@ -759,7 +759,7 @@ namespace Catch {
         }
 
         std::string getExpandedExpression() const {
-            return hasExpression() ? getExpandedExpressionInternal() : "";
+            return hasExpression() ? getExpandedExpressionInternal() :std::string("");
         }
 
         std::string getMessage() const {
@@ -883,10 +883,10 @@ namespace Internal {
     }
 
     // "base" overload
-    template<Operator Op, typename T1, typename T2>
-    bool compare( const T1& lhs, const T2& rhs ) {
-        return Evaluator<T1, T2, Op>::evaluate( lhs, rhs );
-    }
+//    template<Operator Op, typename T1, typename T2>
+//    bool compare( const T1& lhs, const T2& rhs ) {
+//        return Evaluator<T1, T2, Op>::evaluate( lhs, rhs );
+//    }
 
     // unsigned X to int
     template<Operator Op> bool compare( unsigned int lhs, int rhs ) {
@@ -2986,7 +2986,7 @@ namespace Catch {
         virtual std::string getCurrentTestName() const {
             return m_runningTest
                 ? m_runningTest->getTestCaseInfo().getName()
-                : "";
+                : std::string("");
         }
 
         virtual const ResultInfo* getLastResult() const {
@@ -3210,7 +3210,7 @@ namespace Catch {
         }
 
         void set( TextColour::Colours colour ) {
-            WORD consoleColour = mapConsoleColour( colour );
+            WORD consoleColour = Catch::mapConsoleColour( colour );
             if( consoleColour > 0 )
                 SetConsoleTextAttribute( hStdout, consoleColour );
         }
@@ -3799,7 +3799,7 @@ namespace Catch {
             if( counts.passed )
                 m_config.stream() << counts.failed << " of " << counts.total() << " " << label << "s failed";
             else
-                m_config.stream() << ( counts.failed > 1 ? allPrefix : "" ) << pluralise( counts.failed, label ) << " failed";
+                m_config.stream() << ( counts.failed > 1 ? allPrefix : std::string("") ) << pluralise( counts.failed, label ) << " failed";
         }
 
         void ReportCounts( const Totals& totals, const std::string& allPrefix = "All " ) {
@@ -4686,7 +4686,7 @@ namespace Catch {
     inline int Main( int argc, char* const argv[], Config& config ) {
 
         try {
-            CommandParser parser( argc, argv );
+            CommandParser parser( argc, (char const * const *) argv );
 
             if( Command cmd = parser.find( "-h", "-?", "--help" ) ) {
                 if( cmd.argsCount() != 0 )
