@@ -4,7 +4,7 @@ BRCC = $(ROOT)\bin\brcc32.exe
 .silent
 default: clean all
 
-clean: clean
+clean: 
 	echo ========== cleaning object files ======
 	-@DEL /F /Q /S *.obj *.tds *.exe 1>nul
 	
