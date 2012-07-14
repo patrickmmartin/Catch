@@ -102,7 +102,7 @@ namespace Catch {
     inline int Main( int argc, char* const argv[], Config& config ) {
 
         try {
-            CommandParser parser( argc, argv );
+            CommandParser parser( argc, (char const * const *) argv );
         
             if( Command cmd = parser.find( "-h", "-?", "--help" ) ) {
                 if( cmd.argsCount() != 0 )

@@ -1,5 +1,5 @@
 /*
- *  Generated: 2012-07-05 18:47:13.729198
+ *  Generated: 2012-07-14 20:15:27.752000
  *  ----------------------------------------------------------
  *  This file has been merged from multiple headers. Please don't edit it directly
  *  Copyright (c) 2012 Two Blue Cubes Ltd. All rights reserved.
@@ -759,7 +759,7 @@ namespace Catch {
         }
 
         std::string getExpandedExpression() const {
-            return hasExpression() ? getExpandedExpressionInternal() :std::string("");
+            return hasExpression() ? getExpandedExpressionInternal() : std::string("");
         }
 
         std::string getMessage() const {
@@ -2211,9 +2211,6 @@ namespace Catch {
 
     inline std::string toString( NSString* const& nsstring ) {
         return std::string( "@\"" ) + [nsstring UTF8String] + "\"";
-    }
-    inline std::string toString( NSObject* const& nsObject ) {
-        return toString( [nsObject description] );
     }
 
     namespace Matchers {
