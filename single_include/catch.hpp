@@ -1,5 +1,5 @@
 /*
- *  Generated: 2012-07-14 20:15:27.752000
+ *  Generated: 2012-07-15 23:29:50.806000
  *  ----------------------------------------------------------
  *  This file has been merged from multiple headers. Please don't edit it directly
  *  Copyright (c) 2012 Two Blue Cubes Ltd. All rights reserved.
@@ -883,10 +883,10 @@ namespace Internal {
     }
 
     // "base" overload
-//    template<Operator Op, typename T1, typename T2>
-//    bool compare( const T1& lhs, const T2& rhs ) {
-//        return Evaluator<T1, T2, Op>::evaluate( lhs, rhs );
-//    }
+    template<Operator Op, typename T1, typename T2>
+    bool compare( const T1& lhs, const T2& rhs ) {
+        return Evaluator<T1, T2, Op>::evaluate( lhs, rhs );
+    }
 
     // unsigned X to int
     template<Operator Op> bool compare( unsigned int lhs, int rhs ) {
