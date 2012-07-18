@@ -6,9 +6,10 @@
   }
 
   TEST_CASE( "example/factorial", "The Factorial function returns the factorial of the number passed in" ) {
-      REQUIRE( Factorial(0) == 1 );
-      REQUIRE( Factorial(1) == 1 );
-      REQUIRE( Factorial(2) == 2 );
-      REQUIRE( Factorial(3) == 6 );
-      REQUIRE( Factorial(10) == 3628800 );
+      REQUIRE( Factorial(0) == (unsigned int) 1 );
+      REQUIRE( Factorial(1) == (unsigned int) 1 );
+      REQUIRE( Factorial(2) == (unsigned int) 2 );
+      REQUIRE( Factorial(3) == (unsigned int) 6 );
+      REQUIRE( Factorial(10) == (unsigned int) 3628800 );
+
   } 
