@@ -4,10 +4,10 @@
 
 * The download is still available at http://edn.embarcadero.com/article/20633/
 * run the installer - accept the default folder _C:\Borland\BCC55\Bin_ if you possibly can
-* in a command prompt cd to <Catch checkout>\projects\CPPBuilder5
+* in a command prompt cd to \<Catch checkout\>\projects\CPPBuilder5
 * _important_ you will probably *have* to run the environment setup script:
   * bccenv.bat
-* run _make -f Tutorial.mak_
+* run _make -f Tutorial1.mak_
 * Tutorial1.exe should be built in the current dir   
   
   
